@@ -58,21 +58,21 @@ close= close.rename(columns={'value':'Close'})
 close = close.filter(['Ticker', interval, 'Max Date', 'Close'], axis=1)
 comp = pd.merge(open, close, how = 'left', on=[interval, 'Ticker'])
 
-#create flag when period close is higher than period open -- this loop generates some warnings, but everything works
-comp['Growth_periods'] = 0
+#create flag when period close is higher than period open
+comp['Growth_period'] = 0
 
 for i, row in comp.iterrows():
     if comp.loc[i,'Close'] > comp.loc[i,'Open']:
-        comp.loc[i,'Growth_periods'] = 1
+        comp.loc[i,'Growth_period'] = 1
 
 #count the number of periods with growth and number of total periods
 count = comp.groupby(['Ticker'])[['Ticker']].count()
 count=count.rename(columns={'Ticker':'Periods'})
-sum = comp.groupby(['Ticker'])[['Growth_periods']].sum()
+sum = comp.groupby(['Ticker'])[['Growth_period']].sum()
 
 #merge growth and count sums; calculate pct of intervals with growth
 comp_out = pd.merge(sum,count, how = 'left', on='Ticker')
-comp_out['Grow_period_pct'] = comp_out['Growth_periods']/comp_out['Periods']
+comp_out['Grow_period_pct'] = comp_out['Growth_period']/comp_out['Periods']
 comp_out['period_start'] = period_start
 comp_out['period_end'] = period_end
 comp_out['Growth_Interval'] = interval
