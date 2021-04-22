@@ -1,5 +1,5 @@
 # Stock-Growth-Period-Percent
-Calculates percentage of periods in which selected stocks grew in a selected time span
+Calculates percentage of periods in which selected stocks grew in a designated time span
 
 A basic program using the yfinance package to calculate percentage of periods in which a stock grew in a selected time span. The general idea is oriented towards options trading
 because the inputs for the percentage are a binary calculation: up or down, rather than any specific value change.  
