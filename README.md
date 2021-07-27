@@ -16,7 +16,7 @@ interval = 'Month'
 
 The following data would be pulled and used to calculate the percentage of periods with growth:
 ```
-Ticker	    Month	Min Date	Open	          Max Date	  Close	      Growth_period
+Ticker	    Month	Min Date	Open	          Max Date	  Close	        Growth_period
 CVX	    1/1/2015	1/2/2015	111.6299973	  1/30/2015	  102.5299988	  0
 CVX	    2/1/2015	2/2/2015	103.9800034	  2/27/2015	  106.6800003	  1
 CVX	    3/1/2015	3/2/2015	106.3199997	  3/31/2015	  104.9800034	  0
@@ -35,6 +35,6 @@ Ticker	Growth_period	  Periods   Grow_period_pct	 period_start	period_end	Growth
 CVX	     2	            5	        0.4	           1/1/2015	   5/31/2015	  Month
 ```
 
-There is no limit on time span, and the code is set up to accommodate days, weeks, months or quarters as the interval
+There is no limit on time span, and the code is set up to accommodate days, weeks, months or quarters as the interval.
 
 One quirk is that the data won't pull quite right with fewer than two tickers, so to avoid that issue, one must be entered, and it is set to run with the Down Jones industrial average every time.
