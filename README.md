@@ -11,7 +11,7 @@ tickers = 'CVX'
 period_start = '2015-01-01'
 period_end = '2015-05-31'
 measure = 'Close'
-interval = 'Week'
+interval = 'Month'
 ```
 
 The following data would be pulled and used to calculate the percentage of periods with growth:
